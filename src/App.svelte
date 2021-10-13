@@ -1,10 +1,10 @@
 <script>
-    function calculatePitchShift(ratio) {
-        return Math.log2(ratio) * 12;
+    function round(value) {
+        return Math.round(value * 100) / 100;
     }
     let inputBPM = 128;
     let outputBPM = 128;
-    $: pitchShift = Math.round(calculatePitchShift(outputBPM / inputBPM) * 100) / 100;
+    $: pitchShift = round(Math.log2(outputBPM / inputBPM) * 12);
 </script>
 
 <main>
